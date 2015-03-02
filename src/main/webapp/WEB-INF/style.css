@@ -1,0 +1,190 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #E7EBEE;
+    font-family: Verdana, Geneva, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, sans-serif;
+    color: #515151;
+    font-size: 16px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header {
+    width: 100%;
+    text-align: center;
+    border: 0;
+}
+.headerText {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 30%;
+    font-size: larger;
+    z-index: 500;
+}
+.leftPane {
+   position: relative;
+   float: left;
+   width: 50%;
+   margin-left: 3%;
+}
+.rightPane {
+    position: relative;
+    float: left;
+    width: 40%;  
+    margin-left: 3%;
+}
+.bottomSection{
+    position: relative;
+    float: left;
+    width: 100%;
+}
+input {
+    border: 1px solid #DBDFE1;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    height: 35px; 
+}
+.inputDiv {
+    width: 100%;
+    margin: 0 auto;
+}
+.inputTableTop {
+    display: block;
+    font-weight: 900;
+    background-color: white;
+    border-spacing: 10px 0;
+    border: 1px solid #DBDFE1;
+    border-bottom: none;
+    width: 100%;
+    margin: 0 auto;
+}
+    .inputTableTop tr {
+        width: 100%;
+    }
+    .inputTableTop th, td {
+        padding: 15px 15px 15px 15px;
+    }
+.inputTableBottom {
+    display: block;
+    font-weight: 900;
+    background-color: white;
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 10px 0;
+    border: 1px solid #DBDFE1;
+    border-top: none;
+}
+    .inputTableBottom tr {
+        width: 100%;
+    }
+    .inputTableBottom th, td {
+        width: 33%;
+        text-align: center;
+        margin: 0 auto;
+        padding: 25px 25px 25px 25px;
+    }  
+.sliderDiv {
+    text-align:center; 
+    vertical-align:middle;
+}
+    .sliderDiv td {
+        background-color: white;
+    }
+    #slider1 {
+        background: #9CC96B;
+    }
+    #slider2 {
+        background: #4EBCDA;
+    }
+    #slider3 {
+        background: #986291;
+    }
+.stockTable {
+    display: block;
+    font-weight: 900;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 10px 0;
+    border: 1px solid #DBDFE1;
+    font-size: 20px;
+    font-size: 1.1vw; // responsive font size
+}
+.stockTable th {
+    font-size: 20px;
+    font-size: 1.2vw;
+}
+    .stockTable th, td {
+        padding: 10px 10px 10px 10px;
+        text-align:center; 
+        vertical-align:middle;
+        width:10%;
+    }  
+.green {
+    color: #9CC96B;
+}
+.blue {
+    color: #4EBCDA;
+}
+.purple {
+    color: #986291;
+}
+.orange {
+    color: #EBAA4B;
+}
+.stockPie {
+    width: 100%;
+    position: relative;
+    float: left;
+}
+.investmentsTable {
+    display: block;
+    background-color: white;
+    position: relative;
+    float: left;
+    width: 60%;
+    margin-left: 3%;
+    border-collapse: separate;
+    border-spacing: 10px 0;
+    border-radius: 5px;
+}
+button {
+    background-color: #5FA2DD;
+    color: white;
+    width: 200%;
+}
+button:hover, button:focus, .button:hover, .button:focus {
+    background-color: #5B9AD1;
+    color: white;
+}
+.submitButton {
+    background-color: #5FA2DD;
+    color: white;
+    height: 100%;
+}
+.submitButton:hover, .submitButton:focus {
+    background-color: #5B9AD1;
+    color: white;
+    height: 100%;
+}
+select {
+    font-size:12px; 
+    width:165px; 
+    height:30px;
+}
