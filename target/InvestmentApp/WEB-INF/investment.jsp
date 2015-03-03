@@ -59,68 +59,76 @@
                 <div class="leftPane">
                     <!-- Input name and investment amount -->
                     <div class="inputDiv">
-                        <table class="inputTableTop">
-                            <tr>
-                                <td><input type="text" 
-                                           ng-model="model.InvestorName" 
-                                           id="InvestorName"
-                                           name="InvestorName" 
-                                           placeholder="Enter Your Name" 
-                                           required />
-                                </td>
-                                <td><input type="text" 
-                                           ng-model="model.InvestedAmount"
-                                           id="InvestedAmount"
-                                           name="InvestedAmount" 
-                                           placeholder="Total Investment" 
-                                           required />
-                                </td>
-                                <td>Purchase Date:
-                                    <%
-                                        Date today = new Date(System.currentTimeMillis());
-                                        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");       
-                                        String PurchaseDate = df.format(today);
-                                        out.print(PurchaseDate);
-                                     %>
-                                     <input type="text" disabled id="PurchaseDate" name="PurchaseDate" value="PurchaseDate" hidden />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                <label>Stock 1</label>
-                                    <div class="green"> 
-                                        <select
-                                            data-ng-model="stock1"
-                                            data-ng-options="stock as (stock.StockSymbol + ' &nbsp; $' + stock.StockCurrentPrice) for stock in stockList">
-                                        </select>
-                                    </div>
-                                </td>
-                                <td>
-                                    <label>Stock 2</label>
-                                    <div class="blue">
-                                        <select
-                                            data-ng-model="stock2"
-                                            data-ng-options="stock as (stock.StockSymbol + ' &nbsp; $' + stock.StockCurrentPrice) for stock in stockList">
-                                        </select>
-                                    </div>
-                                </td>
-                                <td>
-                                    <label>Stock 3</label>
-                                    <div class="purple">
-                                        <select
-                                            data-ng-model="stock3"
-                                            data-ng-options="stock as (stock.StockSymbol + ' &nbsp; $' + stock.StockCurrentPrice) for stock in stockList">
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Investment Information</div>
+                            <table class="inputTableTop">
+                                <tr>
+                                    <td><input type="text" 
+                                               ng-model="model.InvestorName" 
+                                               id="InvestorName"
+                                               name="InvestorName" 
+                                               placeholder="Enter Your Name" 
+                                               required />
+                                    </td>
+                                    <td><input type="text" 
+                                               ng-model="model.InvestedAmount"
+                                               id="InvestedAmount"
+                                               name="InvestedAmount" 
+                                               placeholder="Total Investment" 
+                                               required />
+                                    </td>
+                                    <td>Purchase Date:
+                                        <%
+                                            Date today = new Date(System.currentTimeMillis());
+                                            DateFormat df = new SimpleDateFormat("MM/dd/yyyy");       
+                                            String PurchaseDate = df.format(today);
+                                            out.print(PurchaseDate);
+                                         %>
+                                         <input type="text" disabled id="PurchaseDate" name="PurchaseDate" value="PurchaseDate" hidden />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Stock 1</label>
+                                        <div class="green"> 
+                                            <select
+                                                data-ng-model="stock1"
+                                                ng-blur="resetLine();"
+                                                data-ng-options="stock as (stock.StockSymbol + ' &nbsp; $' + stock.StockCurrentPrice) for stock in stockList">
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <label>Stock 2</label>
+                                        <div class="blue">
+                                            <select
+                                                data-ng-model="stock2"
+                                                ng-blur="resetLine();"
+                                                data-ng-options="stock as (stock.StockSymbol + ' &nbsp; $' + stock.StockCurrentPrice) for stock in stockList">
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <label>Stock 3</label>
+                                        <div class="purple">
+                                            <select
+                                                data-ng-model="stock3"
+                                                ng-blur="resetLine();"
+                                                data-ng-options="stock as (stock.StockSymbol + ' &nbsp; $' + stock.StockCurrentPrice) for stock in stockList">
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                     
+                                         
                     <!-- Sliders -->
                     <div class="sliderDiv">
-                        <br /><br />
-                        <table>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="text-align:left;">Choose Three Stocks</div>
+                            <table>
                             <tr>
                                 <td>
                                     Stock 1:&nbsp; {{ stock1.StockSymbol }}
@@ -154,13 +162,14 @@
                                 </td>
                             </tr>
                         </table>
+                        </div>
                     </div>
-                </div>
-                
-                <!----------------------- Right Pane ----------------------->
-                <div class="rightPane">
+                    <br /><br />
+                    
                     <!-- Table of Stocks -->
-                    <table class="stockTable">
+                    <div class="panel panel-default">
+                            <div class="panel-heading" style="text-align:left;">Choose Three Stocks</div>
+                        <table class="stockTable">
                         <tr>
                             <th></th>
                             <th>Stock</th>
@@ -196,25 +205,37 @@
                             <td>{{ model.LeftoverAmount | number:2}}</td>
                         </tr>
                     </table>
-                    <br /><br />
+                    </div>
                     
+                    <!-- SUBMIT BUTTON -->
+                    <div><input type="submit" value="Submit" class="submitButton btn-lg" /></div>
+                </div>
+                
+                <!----------------------- Right Pane ----------------------->
+                <div class="rightPane">
+
                     <!-- Pie of Stocks -->
                     <div class="stockPie">    
-                        <div id="pie-chart">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Stock Percentages</div>
+                            <div class="panel-body">
+                              <canvas id="pie" class="chart chart-pie chart-xs" data="data" labels="labels" legend="true"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Line Chart -->
+                    <div class="lineChart">  
+                        <div id="line-chart">
                             <div class="panel panel-default">
-                              <div class="panel-heading">Pie Chart</div>
+                              <div class="panel-heading">Daily & Yearly Prices</div>
                               <div class="panel-body">
-                                <canvas id="pie" class="chart chart-pie chart-xs" data="data" labels="labels" legend="legend"></canvas>
+                                  <canvas id="line" class="chart chart-line chart-xs" data="lineData" labels="lineLabels" legend="true" series="lineSeries"></canvas>
                               </div>
                             </div>
                         </div>
                     </div>
-                    <br /><br />
-                    <div>
-                        <input type="submit" value="Submit" class="submitButton btn-lg" />
-                    </div>
-                </div>
-                
+                   
                 <!-- Assign angular values to html elements to post to db -->
                 <input type="hidden" name="LeftoverAmount" id="LeftoverAmount" value="{{ model.LeftoverAmount }}" />            
                 <input type="hidden" name="Stock1Symbol" id="Stock1Symbol" value="{{ stock1.StockSymbol }}" />
@@ -233,7 +254,9 @@
                 <input type="hidden" name="Stock3Percent" id="Stock3Percent" value="{{ model.Stock3Percent }}" />
             </form>
             <br /><br />
+            </div>  
             
+            <!----------------------- Bottom Pane ----------------------->
             <div class="bottomSection">
                 <br /><br />
                 <table class="investmentsTable">
@@ -243,7 +266,7 @@
                         <% } %>           
                 </table>  
             </div>
-        </div>      
+            
         <script>  
             // this updates the stock1 percentage value
           $(function () {

@@ -37,13 +37,13 @@ html, body {
 .leftPane {
    position: relative;
    float: left;
-   width: 50%;
+   width: 63%;
    margin-left: 3%;
 }
 .rightPane {
     position: relative;
     float: left;
-    width: 40%;  
+    width: 30%;  
     margin-left: 3%;
 }
 .bottomSection{
@@ -153,16 +153,21 @@ input {
     position: relative;
     float: left;
 }
+.lineChart{
+    width: 100%;
+    position: relative;
+    float: left;
+    margin-top: 15px;
+}
 .investmentsTable {
     display: block;
     background-color: white;
     position: relative;
     float: left;
-    width: 60%;
-    margin-left: 3%;
     border-collapse: separate;
     border-spacing: 10px 0;
     border-radius: 5px;
+    width: 100%;
 }
 button {
     background-color: #5FA2DD;
@@ -184,7 +189,7 @@ button:hover, button:focus, .button:hover, .button:focus {
     height: 100%;
 }
 select {
-    font-size:12px; 
-    width:165px; 
-    height:30px;
+    font-size: 12px; 
+    width: 165px; 
+    height: 30px;
 }
