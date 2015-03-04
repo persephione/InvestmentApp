@@ -12,25 +12,25 @@ public class Investment implements Serializable {
     // Persistent Fields:
     @Id @GeneratedValue
     int InvestmentID;
-    private String InvestorName;
-    private String PurchaseDate;
-    private float InvestedAmount;
-    private float LeftoverAmount;
+    public String InvestorName;
+    public String PurchaseDate;
+    public float InvestedAmount;
+    public float LeftoverAmount;
     
-    private String Stock1Symbol;
-    private float Stock1CurrentPrice;
-    private int Stock1NumShares;
-    private int Stock1Percent;
+    public String Stock1Symbol;
+    public float Stock1CurrentPrice;
+    public int Stock1NumShares;
+    public int Stock1Percent;
     
-    private String Stock2Symbol;
-    private float Stock2CurrentPrice;
-    private int Stock2NumShares;
-    private int Stock2Percent;
+    public String Stock2Symbol;
+    public float Stock2CurrentPrice;
+    public int Stock2NumShares;
+    public int Stock2Percent;
 
-    private String Stock3Symbol;
-    private float Stock3CurrentPrice;
-    private int Stock3NumShares;
-    private int Stock3Percent;
+    public String Stock3Symbol;
+    public float Stock3CurrentPrice;
+    public int Stock3NumShares;
+    public int Stock3Percent;
  
     // Constructors:
     public Investment() {

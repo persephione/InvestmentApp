@@ -35,9 +35,6 @@
                 parseInt($scope.model.Stock3Percent),
                 parseInt($scope.model.LeftoverPercent)
             ];
-            // still working on the colors -------------------------------------------------
-            //$scope.colours = ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'];
-            //$scope.colours = ['#FFFFFF', 'blue', 'purple', 'orange'];
         };
         
         $scope.resetLine = function () {
@@ -319,5 +316,36 @@
         return y < 0 ? 0 : y > 100 ? 100 : y;
     }
 
-    //app.controller('AppController', AppController);
 }());
+
+$(function () {
+    $("#slider1").slider({
+        max: 100,
+        min: 0,
+        value: 0,
+        slide: function (e, ui) {
+            $('#currentval1').val(ui.value);
+        }
+    });
+}); 
+
+$(function () {
+    $("#slider2").slider({
+        max: 100,
+        min: 0,
+        value: 0,
+        slide: function (e, ui) {
+            $('#currentval2').val(ui.value);
+        }
+    });
+});
+$(function () {
+    $("#slider3").slider({
+        max: 100,
+        min: 0,
+        value: 0,
+        slide: function (e, ui) {
+            $('#currentval3').val(ui.value);
+        }
+    });
+}); 

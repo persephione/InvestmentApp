@@ -260,46 +260,76 @@
             <div class="bottomSection">
                 <br /><br />
                 <table class="investmentsTable">
-                    <tr><th colspan="2">*** INVESTMENTS CURRENTLY IN THE DATABASE ***</th></tr>
+                    <tr><th colspan="5">*** INVESTMENTS CURRENTLY IN THE DATABASE ***</th></tr>
                         <% for (Investment investment : investmentDao.getAllInvestments()) { %>
-                            <tr><td> <%= investment %> </td></tr>
-                        <% } %>           
+                            <tr>
+                                <td><strong>Investor Info</strong></td>
+                                <td> <%= investment.InvestorName %></td>
+                                <td> <%= investment.PurchaseDate %></td>
+                                <td> $<%= String.format("%.2f", investment.InvestedAmount) %></td>  
+                                <td> $<%= String.format("%.2f", investment.LeftoverAmount) %></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stock 1: </strong></td>
+                                <td> <%= investment.Stock1Symbol %></td>
+                                <td> $<%= investment.Stock1CurrentPrice %></td>
+                                <td> <%= investment.Stock1NumShares %></td>
+                                <td> <%= investment.Stock1Percent %>%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stock 2: </strong></td>
+                                <td> <%= investment.Stock2Symbol %></td>
+                                <td> $<%= investment.Stock2CurrentPrice %></td>
+                                <td> <%= investment.Stock2NumShares %></td>
+                                <td> <%= investment.Stock2Percent %>%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stock 3: </strong></td>
+                                <td> <%= investment.Stock3Symbol %></td>
+                                <td> $<%= investment.Stock3CurrentPrice %></td>
+                                <td> <%= investment.Stock3NumShares %></td>
+                                <td> <%= investment.Stock3Percent %>%</td>
+                            </tr>
+                            <tr><td colspan="5"></td></tr>
+                        <% } %>      
+                        
+                          
                 </table>  
             </div>
             
         <script>  
             // this updates the stock1 percentage value
-          $(function () {
-              $("#slider1").slider({
-                  max: 100,
-                  min: 0,
-                  value: 0,
-                  slide: function (e, ui) {
-                      $('#currentval1').val(ui.value);
-                  }
-              });
-          }); 
-            
-          $(function () {
-              $("#slider2").slider({
-                  max: 100,
-                  min: 0,
-                  value: 0,
-                  slide: function (e, ui) {
-                      $('#currentval2').val(ui.value);
-                  }
-              });
-          });
-          $(function () {
-              $("#slider3").slider({
-                  max: 100,
-                  min: 0,
-                  value: 0,
-                  slide: function (e, ui) {
-                      $('#currentval3').val(ui.value);
-                  }
-              });
-          }); 
+//          $(function () {
+//              $("#slider1").slider({
+//                  max: 100,
+//                  min: 0,
+//                  value: 0,
+//                  slide: function (e, ui) {
+//                      $('#currentval1').val(ui.value);
+//                  }
+//              });
+//          }); 
+//            
+//          $(function () {
+//              $("#slider2").slider({
+//                  max: 100,
+//                  min: 0,
+//                  value: 0,
+//                  slide: function (e, ui) {
+//                      $('#currentval2').val(ui.value);
+//                  }
+//              });
+//          });
+//          $(function () {
+//              $("#slider3").slider({
+//                  max: 100,
+//                  min: 0,
+//                  value: 0,
+//                  slide: function (e, ui) {
+//                      $('#currentval3').val(ui.value);
+//                  }
+//              });
+//          }); 
         </script>      
      </body>
  </html>
