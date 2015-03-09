@@ -134,6 +134,7 @@
             }
             $scope.move(1);
             $scope.resetPie();
+            numShares();
         };
         
         // calculates all percentages on stock 2 percent value change
@@ -178,6 +179,7 @@
             }
             $scope.move(2);
             $scope.resetPie();
+            numShares();
         };
         // calculates all percentages on stock 3 percent value change
         $scope.calculateStock3 = function () {
@@ -223,7 +225,33 @@
             }             
             $scope.move(3);
             $scope.resetPie();
+            numShares();
         };
+        
+         function numShares() //calculates number of shares       
+        {
+            if ($scope.model.InvestedAmount !== '')
+            {
+                var amt1 = parseInt((parseFloat($scope.model.InvestedAmount) * (parseFloat($scope.model.Stock1Percent) / 100)) / parseFloat($scope.stock1.StockCurrentPrice));
+                var amt2 = parseInt((parseFloat($scope.model.InvestedAmount) * (parseFloat($scope.model.Stock2Percent) / 100)) / parseFloat($scope.stock2.StockCurrentPrice));
+                var amt3 = parseInt((parseFloat($scope.model.InvestedAmount) * (parseFloat($scope.model.Stock3Percent) / 100)) / parseFloat($scope.stock3.StockCurrentPrice));
+
+                $scope.model.Stock1NumShares = amt1;
+                $scope.model.Stock2NumShares = amt2;
+                $scope.model.Stock3NumShares = amt3;
+
+                $scope.model.Stock1InvestedAmt = parseFloat(amt1 * $scope.stock1.StockCurrentPrice).toFixed(2);
+                $scope.model.Stock2InvestedAmt = parseFloat(amt2 * $scope.stock2.StockCurrentPrice).toFixed(2);
+                $scope.model.Stock3InvestedAmt = parseFloat(amt3 * $scope.stock3.StockCurrentPrice).toFixed(2);
+
+                $scope.model.LeftoverAmount = parseFloat($scope.model.InvestedAmount).toFixed(2) - (parseFloat($scope.model.Stock1InvestedAmt) + parseFloat($scope.model.Stock2InvestedAmt) + parseFloat($scope.model.Stock3InvestedAmt));
+
+
+            }
+
+
+
+        }
         // get current stock prices and populate dropdowns
         $http.get("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22AAPL%22%2C%22AMD%22%2C%22AMZN%22%2C%22BBY%22%2C%22CSCO%22%2C%22EA%22%2C%22FORD%22%2C%22GE%22%2C%22GOOG%22%2C%22HPQ%22%2C%22HTCH%22%2C%22IBM%22%2C%22INTC%22%2C%22LGAH%22%2C%22LNVGF%22%2C%22LOGI%22%2C%22MSFT%22%2C%22MSI%22%2C%22NOK%22%2C%22NTDOF%22%2C%22SMSGF%22%2C%22SNE%22%2C%22T%22%2C%22TXN%22%2C%22VZ%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=")
                 .success(function (response) {
