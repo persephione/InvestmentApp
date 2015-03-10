@@ -132,6 +132,7 @@
                 }
             }
             $scope.move(1);
+            numShares();
             $scope.resetPie();
             $scope.resetLine();
         };
@@ -177,6 +178,7 @@
                 }
             }
             $scope.move(2);
+            numShares();
             $scope.resetPie();
             $scope.resetLine();
         };
@@ -223,9 +225,31 @@
                 }
             }             
             $scope.move(3);
+            numShares();
             $scope.resetPie();
             $scope.resetLine();
         };
+        
+        function numShares() //calculates number of shares       
+        {
+            if ($scope.model.InvestedAmount !== '')
+            {
+                var amt1 = parseInt((parseFloat($scope.model.InvestedAmount) * (parseFloat($scope.model.Stock1Percent) / 100)) / parseFloat($scope.stock1.StockCurrentPrice));
+                var amt2 = parseInt((parseFloat($scope.model.InvestedAmount) * (parseFloat($scope.model.Stock2Percent) / 100)) / parseFloat($scope.stock2.StockCurrentPrice));
+                var amt3 = parseInt((parseFloat($scope.model.InvestedAmount) * (parseFloat($scope.model.Stock3Percent) / 100)) / parseFloat($scope.stock3.StockCurrentPrice));
+
+                $scope.model.Stock1NumShares = amt1;
+                $scope.model.Stock2NumShares = amt2;
+                $scope.model.Stock3NumShares = amt3;
+
+                $scope.model.Stock1InvestedAmt = parseFloat(amt1 * $scope.stock1.StockCurrentPrice).toFixed(2);
+                $scope.model.Stock2InvestedAmt = parseFloat(amt2 * $scope.stock2.StockCurrentPrice).toFixed(2);
+                $scope.model.Stock3InvestedAmt = parseFloat(amt3 * $scope.stock3.StockCurrentPrice).toFixed(2);
+
+                $scope.model.LeftoverAmount = parseFloat($scope.model.InvestedAmount).toFixed(2) - (parseFloat($scope.model.Stock1InvestedAmt) + parseFloat($scope.model.Stock2InvestedAmt) + parseFloat($scope.model.Stock3InvestedAmt));
+            }
+        }
+        
         // get current stock prices and populate dropdowns
         $http.get("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22AAPL%22%2C%22AMD%22%2C%22AMZN%22%2C%22BBY%22%2C%22CSCO%22%2C%22EA%22%2C%22FORD%22%2C%22GE%22%2C%22GOOG%22%2C%22HPQ%22%2C%22HTCH%22%2C%22IBM%22%2C%22INTC%22%2C%22LGAH%22%2C%22LNVGF%22%2C%22LOGI%22%2C%22MSFT%22%2C%22MSI%22%2C%22NOK%22%2C%22NTDOF%22%2C%22SMSGF%22%2C%22SNE%22%2C%22T%22%2C%22TXN%22%2C%22VZ%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=")
                 .success(function (response) {
@@ -259,23 +283,6 @@
     });
     app.controller('LineCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
             
-//            $scope.labels = [$scope.stock1.StockSymbol, $scope.stock2.StockSymbol, $scope.stock3.StockSymbol, 'Leftover Amount'];
-//            $scope.series = ['Series A', 'Series B'];
-//            $scope.data = [
-//                [65, 59, 80, 81, 56, 55, 40],
-//                [28, 48, 40, 19, 86, 27, 90]
-//            ];
-//            $scope.onClick = function (points, evt) {
-//                console.log(points, evt);
-//            };
-//            $timeout(function () {
-//                $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-//                $scope.data = [
-//                    [28, 48, 40, 19, 86, 27, 90],
-//                    [65, 59, 80, 81, 56, 55, 40]
-//                ];
-//                $scope.series = ['Series C', 'Series D'];
-//            }, 3000);
         }]);
     app.controller('BaseCtrl', function ($scope) {
         $scope.labels = ['Download Sales', 'Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
