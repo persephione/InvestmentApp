@@ -224,6 +224,18 @@
                         </div>
                     </div>
                     
+                    <!-- Bar Chart -->
+                    <div class="barChart">  
+                        <div id="bar-chart">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">Bar Chart</div>
+                              <div class="panel-body">
+                                  <canvas id="bar" class="chart chart-bar chart-xs" data="barData" labels="barLabels"></canvas>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- Line Chart -->
                     <div class="lineChart">  
                         <div id="line-chart">
@@ -235,7 +247,7 @@
                             </div>
                         </div>
                     </div>
-                   
+   
                 <!-- Assign angular values to html elements to post to db -->
                 <input type="hidden" name="LeftoverAmount" id="LeftoverAmount" value="{{ model.LeftoverAmount }}" />            
                 <input type="hidden" name="Stock1Symbol" id="Stock1Symbol" value="{{ stock1.StockSymbol }}" />

@@ -162,6 +162,12 @@ table.stockTable {
     float: left;
     margin-top: 15px;
 }
+.barChart{
+    width: 100%;
+    position: relative;
+    float: left;
+    margin-top: 15px;
+}
 table.investmentsTable {
     display: block;
     background-color: white;

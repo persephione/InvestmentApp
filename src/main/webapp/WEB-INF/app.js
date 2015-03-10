@@ -75,6 +75,25 @@
             }, 4000);
         };
         
+        $scope.resetBar = function () {
+            $scope.barLabels = ['Stock 1: ' + $scope.stock1.StockSymbol, 'Stock 2: ' + $scope.stock2.StockSymbol, 'Stock 3: ' + $scope.stock3.StockSymbol];
+
+            $scope.barData = [
+                [
+                    parseInt($scope.model.Stock1Percent),
+                    parseInt($scope.model.Stock2Percent),
+                    parseInt($scope.model.Stock3Percent)
+                ]
+            ];
+        };
+        
+        function calculateData(){
+            numShares();
+            $scope.resetPie();
+            $scope.resetLine();
+            $scope.resetBar();
+        };
+        
         // move the slider handles on value change
         $scope.move = function (num) {
             if (num === 1)
@@ -132,9 +151,7 @@
                 }
             }
             $scope.move(1);
-            numShares();
-            $scope.resetPie();
-            $scope.resetLine();
+            calculateData();
         };
         
         // calculates all percentages on stock 2 percent value change
@@ -178,10 +195,9 @@
                 }
             }
             $scope.move(2);
-            numShares();
-            $scope.resetPie();
-            $scope.resetLine();
+            calculateData();
         };
+        
         // calculates all percentages on stock 3 percent value change
         $scope.calculateStock3 = function () {
             $scope.model.Stock3Percent = document.getElementById("currentval3").value;
@@ -225,9 +241,7 @@
                 }
             }             
             $scope.move(3);
-            numShares();
-            $scope.resetPie();
-            $scope.resetLine();
+            calculateData();
         };
         
         function numShares() //calculates number of shares       
