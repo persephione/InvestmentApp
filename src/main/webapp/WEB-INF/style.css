@@ -62,7 +62,7 @@ input {
     width: 100%;
     margin: 0 auto;
 }
-.inputTableTop {
+table.inputTableTop {
     display: block;
     font-weight: 900;
     background-color: white;
@@ -72,13 +72,13 @@ input {
     width: 100%;
     margin: 0 auto;
 }
-    .inputTableTop tr {
+    table.inputTableTop tr {
         width: 100%;
     }
-    .inputTableTop th, td {
+    table.inputTableTop th, td {
         padding: 15px 15px 15px 15px;
     }
-.inputTableBottom {
+table.inputTableBottom {
     display: block;
     font-weight: 900;
     background-color: white;
@@ -89,10 +89,10 @@ input {
     border: 1px solid #DBDFE1;
     border-top: none;
 }
-    .inputTableBottom tr {
+    table.inputTableBottom tr {
         width: 100%;
     }
-    .inputTableBottom th, td {
+    table.inputTableBottom th, td {
         width: 33%;
         text-align: center;
         margin: 0 auto;
@@ -114,28 +114,31 @@ input {
     #slider3 {
         background: #986291;
     }
-.stockTable {
-    display: block;
-    font-weight: 900;
+table.stockTable {
     background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: separate;
-    border-spacing: 10px 0;
     border: 1px solid #DBDFE1;
     font-size: 20px;
-    font-size: 1.1vw; // responsive font size
+    text-align: center;
+    width: 100%;
 }
-.stockTable th {
-    font-size: 20px;
-    font-size: 1.2vw;
-}
-    .stockTable th, td {
-        padding: 10px 10px 10px 10px;
-        text-align:center; 
-        vertical-align:middle;
-        width:10%;
-    }  
+    table.stockTable tr {
+        width: 100%;
+    }
+    table.stockTable td {
+        width: 20%;
+    }
+    table.stockTable th {
+        font-size: 22px;
+        text-align: center;
+        width: 20%;
+    }
+    table.stockTable input{
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-size: 20px;
+        width: 50%;
+    }
 .green {
     color: #9CC96B;
 }
@@ -159,7 +162,7 @@ input {
     float: left;
     margin-top: 15px;
 }
-.investmentsTable {
+table.investmentsTable {
     display: block;
     background-color: white;
     position: relative;
@@ -172,8 +175,8 @@ input {
     margin-right: 15%;
     text-align: center;
 }
-    .investmentsTable th {
-        text-align:center;
+    table.investmentsTable th {
+        text-align: center;
     }
 button {
     background-color: #5FA2DD;

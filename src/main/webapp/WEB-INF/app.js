@@ -28,12 +28,11 @@
         
         // Pie Chart
         $scope.resetPie = function () {
-            $scope.labels = ['Stock 1: ' + $scope.stock1.StockSymbol, 'Stock 2: ' + $scope.stock2.StockSymbol, 'Stock 3: ' + $scope.stock3.StockSymbol, 'Leftover Amount'];
+            $scope.labels = ['Stock 1: ' + $scope.stock1.StockSymbol, 'Stock 2: ' + $scope.stock2.StockSymbol, 'Stock 3: ' + $scope.stock3.StockSymbol];
             $scope.data = [
                 parseInt($scope.model.Stock1Percent),
                 parseInt($scope.model.Stock2Percent),
-                parseInt($scope.model.Stock3Percent),
-                parseInt($scope.model.LeftoverPercent)
+                parseInt($scope.model.Stock3Percent)
             ];
         };
         
@@ -134,6 +133,7 @@
             }
             $scope.move(1);
             $scope.resetPie();
+            $scope.resetLine();
         };
         
         // calculates all percentages on stock 2 percent value change
@@ -178,6 +178,7 @@
             }
             $scope.move(2);
             $scope.resetPie();
+            $scope.resetLine();
         };
         // calculates all percentages on stock 3 percent value change
         $scope.calculateStock3 = function () {
@@ -223,6 +224,7 @@
             }             
             $scope.move(3);
             $scope.resetPie();
+            $scope.resetLine();
         };
         // get current stock prices and populate dropdowns
         $http.get("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22AAPL%22%2C%22AMD%22%2C%22AMZN%22%2C%22BBY%22%2C%22CSCO%22%2C%22EA%22%2C%22FORD%22%2C%22GE%22%2C%22GOOG%22%2C%22HPQ%22%2C%22HTCH%22%2C%22IBM%22%2C%22INTC%22%2C%22LGAH%22%2C%22LNVGF%22%2C%22LOGI%22%2C%22MSFT%22%2C%22MSI%22%2C%22NOK%22%2C%22NTDOF%22%2C%22SMSGF%22%2C%22SNE%22%2C%22T%22%2C%22TXN%22%2C%22VZ%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=")

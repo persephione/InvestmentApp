@@ -128,9 +128,9 @@
                     <div class="sliderDiv">
                         <div class="panel panel-default">
                             <div class="panel-heading" style="text-align:left;">Choose Three Stocks</div>
-                            <table>
-                            <tr>
-                                <td>
+                            <table style="width: 100%">
+                            <tr style="width: 100%">
+                                <td style="width: 33%">
                                     Stock 1:&nbsp; {{ stock1.StockSymbol }}
                                     <div id="slider1" ng-click="calculateStock1()"></div>
                                     <div><input id="currentval1" 
@@ -140,7 +140,7 @@
                                                 ng-model="model.Stock1Percent"
                                                 ng-blur="calculateStock1()"></div>
                                 </td>
-                                <td>
+                                <td style="width: 33%">
                                     Stock 2:&nbsp; {{ stock2.StockSymbol }}
                                     <div id="slider2" ng-click="calculateStock2()"></div>
                                     <div><input id="currentval2" 
@@ -150,7 +150,7 @@
                                                 ng-model="model.Stock2Percent"
                                                 ng-blur="calculateStock2()"></div>
                                 </td>
-                                <td>
+                                <td style="width: 33%">
                                     Stock 3:&nbsp; {{ stock3.StockSymbol }}
                                     <div id="slider3" ng-click="calculateStock3()"></div>
                                     <div><input id="currentval3" 
@@ -168,42 +168,42 @@
                     
                     <!-- Table of Stocks -->
                     <div class="panel panel-default">
-                            <div class="panel-heading" style="text-align:left;">Choose Three Stocks</div>
+                        <div class="panel-heading" style="text-align:left;">Investment Overview</div>
                         <table class="stockTable">
-                        <tr>
-                            <th></th>
-                            <th>Stock</th>
-                            <th>Percentage</th>
-                            <th>Number of Shares</th>
-                            <th>Invested Amount</th>
-                        </tr>
-                        <tr class="green">
-                            <td>Stock 1</td>
-                            <td>{{ stock1.StockSymbol }}</td>
-                            <td>{{ model.Stock1Percent }}%</td>
-                            <td>{{ model.Stock1NumShares }}</td>
-                            <td>{{ model.Stock1InvestedAmt }}</td>
-                        </tr>
-                        <tr class="blue">
-                            <td>Stock 2</td>
-                            <td>{{ stock2.StockSymbol }}</td>
-                            <td>{{ model.Stock2Percent }}%</td>
-                            <td>{{ model.Stock2NumShares }}</td>
-                            <td>{{ model.Stock2InvestedAmt }}</td>
-                        </tr>
-                        <tr class="purple">
-                            <td>Stock 3</td>
-                            <td>{{ stock3.StockSymbol }}</td>
-                            <td>{{ model.Stock3Percent }}%</td>
-                            <td>{{ model.Stock3NumShares }}</td>
-                            <td>{{ model.Stock3InvestedAmt }}</td>
-                        </tr>
-                        <tr class="orange">
-                            <td colspan="2">Leftover Amount</td>
-                            <td>{{ model.LeftoverPercent }}%</td>
-                            <td></td>
-                            <td>{{ model.LeftoverAmount | number:2}}</td>
-                        </tr>
+                            <tr>
+                                <th></th>
+                                <th>Stock</th>
+                                <th>Percentage</th>
+                                <th>Number of Shares</th>
+                                <th>Invested Amount</th>
+                            </tr>
+                            <tr class="green">
+                                <td>Stock 1</td>
+                                <td><input ng-model="stock1.StockSymbol" ng-click="calculateStock1()"/></td>
+                                <td><input ng-model="model.Stock1Percent" ng-click="calculateStock1()"/></td>
+                                <td>{{ model.Stock1NumShares }}</td>
+                                <td>{{ model.Stock1InvestedAmt }}</td>
+                            </tr>
+                              <tr class="blue">
+                                <td>Stock 2</td>
+                                <td><input ng-model="stock2.StockSymbol" ng-click="calculateStock2()"/></td>
+                                <td><input ng-model="model.Stock2Percent" ng-click="calculateStock2()"/></td>
+                                <td>{{ model.Stock2NumShares }}</td>
+                                <td>{{ model.Stock2InvestedAmt }}</td>
+                            </tr>
+                            <tr class="purple">
+                                <td>Stock 3</td>
+                                <td><input ng-model="stock3.StockSymbol" ng-click="calculateStock3()"/></td>
+                                <td><input ng-model="model.Stock3Percent" ng-click="calculateStock3()"/></td>
+                                <td>{{ model.Stock3NumShares }}</td>
+                                <td>{{ model.Stock3InvestedAmt }}</td>
+                            </tr>
+                            <tr class="orange">
+                                <td colspan="2">Leftover Amount</td>
+                                <td></td>
+                                <td></td>
+                                <td>{{ model.LeftoverAmount | number:2}}</td>
+                            </tr>
                     </table>
                     </div>
                     
