@@ -29,11 +29,13 @@
         <script src="http://www.tinavanriper.com/files/smoothscroll.min.js"></script>
         
         <script type="text/javascript">
+            <%@ include file="angular-ui-bootstrap-modal.js" %> 
             <%@ include file="app.js" %>    
         </script>
         
         <style type="text/css">
             <%@ include file="angular-chart.css" %>
+            <%@ include file="bootstrap.css" %>
             <%@ include file="style.css" %>
             <%@ include file="app.css" %>
         </style>
@@ -213,9 +215,9 @@
                 
                 <!----------------------- Right Pane ----------------------->
                 <div class="rightPane">
-
+                    
                     <!-- Pie of Stocks -->
-                    <div class="stockPie">    
+                    <div class="stockPie" ng-click="openModal()">    
                         <div class="panel panel-default">
                             <div class="panel-heading">Stock Percentages</div>
                             <div class="panel-body">
@@ -225,7 +227,7 @@
                     </div>
                     
                     <!-- Bar Chart -->
-                    <div class="barChart">  
+                    <div class="barChart" ng-click="openModal()">  
                         <div id="bar-chart">
                             <div class="panel panel-default">
                               <div class="panel-heading">Bar Chart</div>
@@ -237,7 +239,7 @@
                     </div>
                     
                     <!-- Line Chart -->
-                    <div class="lineChart">  
+                    <div class="lineChart" ng-click="openModal()">  
                         <div id="line-chart">
                             <div class="panel panel-default">
                               <div class="panel-heading">Daily & Yearly Prices</div>
@@ -304,45 +306,45 @@
                             </tr>
                             <tr><td colspan="5"></td></tr>
                         <% } %>      
-                        
-                          
+                            
                 </table>  
             </div>
             
-        <script>  
-            // this updates the stock1 percentage value
-//          $(function () {
-//              $("#slider1").slider({
-//                  max: 100,
-//                  min: 0,
-//                  value: 0,
-//                  slide: function (e, ui) {
-//                      $('#currentval1').val(ui.value);
-//                  }
-//              });
-//          }); 
-//            
-//          $(function () {
-//              $("#slider2").slider({
-//                  max: 100,
-//                  min: 0,
-//                  value: 0,
-//                  slide: function (e, ui) {
-//                      $('#currentval2').val(ui.value);
-//                  }
-//              });
-//          });
-//          $(function () {
-//              $("#slider3").slider({
-//                  max: 100,
-//                  min: 0,
-//                  value: 0,
-//                  slide: function (e, ui) {
-//                      $('#currentval3').val(ui.value);
-//                  }
-//              });
-//          }); 
-        </script>      
+                        
+            <!----------------------- Modal ----------------------->
+            <div modal="showModal" close="cancel()">
+                <div class="modal-header">
+                    <h2 style="text-align: center;">Edit Investment</h2>
+                </div>
+                <div class="modal-body">
+                    <table class="stockTable">
+                        <tr>
+                            <th></th>
+                            <th>Stock</th>
+                            <th>Percentage</th>
+                        </tr>
+                        <tr class="green">
+                            <td>Stock 1:</td>
+                            <td><input ng-model="stock1.StockSymbol" ng-blur="calculateStock1()"/></td>
+                            <td><input ng-model="model.Stock1Percent" ng-blur="calculateStock1()"/></td>
+                        </tr>
+                          <tr class="blue">
+                            <td>Stock 2:</td>
+                            <td><input ng-model="stock2.StockSymbol" ng-blur="calculateStock2()"/></td>
+                            <td><input ng-model="model.Stock2Percent" ng-blur="calculateStock2()"/></td>
+                        </tr>
+                        <tr class="purple">
+                            <td>Stock 3:</td>
+                            <td><input ng-model="stock3.StockSymbol" ng-blur="calculateStock3()"/></td>
+                            <td><input ng-model="model.Stock3Percent" ng-blur="calculateStock3()"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="text-align: right;">
+                    <button class="btn" style="width: 100px;" ng-click="cancel()">Cancel</button>
+                    <button class="btn btn-success" style="width: 100px; margin-right: 15px;" ng-click="ok()">Okay</button>
+                </div>
+            </div>          
      </body>
  </html>
         

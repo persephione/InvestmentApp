@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('app', ['chart.js', 'ui.bootstrap']);
+    var app = angular.module('app', ['chart.js', 'ui.bootstrap', 'ui.bootstrap.modal']);
     app.controller('AppController', function ($scope, $http, $timeout) {
         $scope.model = {
             InvestorName: '',
@@ -36,6 +36,7 @@
             ];
         };
         
+        // Line Chart
         $scope.resetLine = function () {
             $scope.lineLabels = ['Stock 1: ' + $scope.stock1.StockSymbol, 'Stock 2: ' + $scope.stock2.StockSymbol, 'Stock 3: ' + $scope.stock3.StockSymbol];
             $scope.lineSeries = ['Year Low', 'Year High'];
@@ -75,6 +76,7 @@
             }, 4000);
         };
         
+        // Bar Chart
         $scope.resetBar = function () {
             $scope.barLabels = ['Stock 1: ' + $scope.stock1.StockSymbol, 'Stock 2: ' + $scope.stock2.StockSymbol, 'Stock 3: ' + $scope.stock3.StockSymbol];
 
@@ -282,6 +284,23 @@
                         $scope.stockList.push($scope.stock);
                     });
                 });
+        
+        $scope.openModal = function(){
+                $scope.showModal = true;
+        };
+        
+        $scope.ok = function() {
+          $scope.showModal = false;
+        };
+
+        $scope.cancel = function() {
+          $scope.showModal = false;
+        };
+
+
+
+
+        
         // load the page
         $scope.onLoad = function () {
 
