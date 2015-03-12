@@ -45,24 +45,26 @@
  
     <body ng-controller="AppController">
         <div class="container">
-            <br /><br />
-            <div class="container-fluid">
-               <div class="text-center aspect-ratio" style="height:300px;" id="container" ng-controller="TicksCtrl">
-                   <canvas width='1200' height='190' id="hero-bar" class="chart chart-line " data="data" options="options" labels="labels"></canvas>
-                   <div class="header">
-                       <div class="headerText tradeGothic"><h1><strong>Stock Investment App</strong></h1></div>
-                  </div>
+            <!---------------------- Header ---------------------->
+            <div class="container-fluid" style="margin-bottom:55px; padding: 0;">
+               <div class="text-center aspect-ratio" style="height:300px; padding: 0;" id="container" ng-controller="TicksCtrl">
+                   <canvas width='1200' height='190' id="hero-bar" 
+                           class="chart chart-line " 
+                           data="data" options="options" labels="labels"></canvas>
+                    <div class="header">
+                       <div class="headerText tradeGothic" style="font-size:60px;"><strong>Stock Investment App</strong></div>
+                    </div>
                </div>
             </div>
             
             <form method="POST" action="investment.html">
                 <!----------------------- Left Pane ----------------------->
-                <br /><br />
+                <br />
                 <div class="leftPane">
                     <!-- Input name and investment amount -->
                     <div class="inputDiv">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Investment Information</div>
+                            <div class="panel-heading" style="background-color:#9CC96B !important;">Investment Information</div>
                             <table class="inputTableTop">
                                 <tr>
                                     <td><input type="text" 
@@ -77,7 +79,7 @@
                                                id="InvestedAmount"
                                                name="InvestedAmount" 
                                                placeholder="Total Investment" 
-                                               required />
+                                               required />                                       
                                     </td>
                                     <td>Purchase Date:
                                         <%
@@ -127,9 +129,10 @@
                     
                                          
                     <!-- Sliders -->
+                    <br /><br />
                     <div class="sliderDiv">
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="text-align:left;">Choose Three Stocks</div>
+                            <div class="panel-heading" style="background-color:#EBAA4B !important; text-align:left;">Choose Three Stocks</div>
                             <table style="width: 100%">
                             <tr style="width: 100%">
                                 <td style="width: 33%">
@@ -170,7 +173,7 @@
                     
                     <!-- Table of Stocks -->
                     <div class="panel panel-default">
-                        <div class="panel-heading" style="text-align:left;">Investment Overview</div>
+                        <div class="panel-heading" style="text-align:left; background-color:#986291 !important;">Investment Overview</div>
                         <table class="stockTable">
                             <tr>
                                 <th></th>
@@ -180,21 +183,21 @@
                                 <th>Invested Amount</th>
                             </tr>
                             <tr class="green">
-                                <td>Stock 1</td>
+                                <td>Stock 1:</td>
                                 <td><input ng-model="stock1.StockSymbol" ng-click="calculateStock1()"/></td>
                                 <td><input ng-model="model.Stock1Percent" ng-click="calculateStock1()"/></td>
                                 <td>{{ model.Stock1NumShares }}</td>
                                 <td>{{ model.Stock1InvestedAmt }}</td>
                             </tr>
                               <tr class="blue">
-                                <td>Stock 2</td>
+                                <td>Stock 2:</td>
                                 <td><input ng-model="stock2.StockSymbol" ng-click="calculateStock2()"/></td>
                                 <td><input ng-model="model.Stock2Percent" ng-click="calculateStock2()"/></td>
                                 <td>{{ model.Stock2NumShares }}</td>
                                 <td>{{ model.Stock2InvestedAmt }}</td>
                             </tr>
                             <tr class="purple">
-                                <td>Stock 3</td>
+                                <td>Stock 3:</td>
                                 <td><input ng-model="stock3.StockSymbol" ng-click="calculateStock3()"/></td>
                                 <td><input ng-model="model.Stock3Percent" ng-click="calculateStock3()"/></td>
                                 <td>{{ model.Stock3NumShares }}</td>
@@ -210,7 +213,7 @@
                     </div>
                     
                     <!-- SUBMIT BUTTON -->
-                    <div><input type="submit" value="Submit" class="submitButton btn-lg" /></div>
+                    <div style="text-align: right;"><input type="submit" value="Submit" class="submitButton btn-lg" style="margin-right:20px;" /></div>
                 </div>
                 
                 <!----------------------- Right Pane ----------------------->
@@ -219,7 +222,7 @@
                     <!-- Pie of Stocks -->
                     <div class="stockPie" ng-click="openModal()">    
                         <div class="panel panel-default">
-                            <div class="panel-heading">Stock Percentages</div>
+                            <div class="panel-heading" style="background-color:#4EBCDA !important;">Stock Percentages</div>
                             <div class="panel-body">
                               <canvas id="pie" class="chart chart-pie chart-xs" data="data" labels="labels" legend="true"></canvas>
                             </div>
@@ -230,7 +233,7 @@
                     <div class="barChart" ng-click="openModal()">  
                         <div id="bar-chart">
                             <div class="panel panel-default">
-                              <div class="panel-heading">Bar Chart</div>
+                              <div class="panel-heading" style="background-color:#50C7A7 !important;">Bar Chart</div>
                               <div class="panel-body">
                                   <canvas id="bar" class="chart chart-bar chart-xs" data="barData" labels="barLabels"></canvas>
                               </div>
@@ -242,7 +245,7 @@
                     <div class="lineChart" ng-click="openModal()">  
                         <div id="line-chart">
                             <div class="panel panel-default">
-                              <div class="panel-heading">Daily & Yearly Prices</div>
+                              <div class="panel-heading" style="background-color:#5FA2DD !important;">Daily & Yearly Prices</div>
                               <div class="panel-body">
                                   <canvas id="line" class="chart chart-line chart-xs" data="lineData" labels="lineLabels" legend="true" series="lineSeries"></canvas>
                               </div>
@@ -274,46 +277,46 @@
             <div class="bottomSection">
                 <br /><br />
                 <table class="investmentsTable">
-                    <tr><th colspan="5">*** INVESTMENTS CURRENTLY IN THE DATABASE ***</th></tr>
-                        <% for (Investment investment : investmentDao.getAllInvestments()) { %>
-                            <tr>
-                                <td><strong>Investor Info</strong></td>
-                                <td> <%= investment.InvestorName %></td>
-                                <td> <%= investment.PurchaseDate %></td>
-                                <td> $<%= String.format("%.2f", investment.InvestedAmount) %></td>  
-                                <td> $<%= String.format("%.2f", investment.LeftoverAmount) %></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Stock 1: </strong></td>
-                                <td> <%= investment.Stock1Symbol %></td>
-                                <td> $<%= investment.Stock1CurrentPrice %></td>
-                                <td> <%= investment.Stock1NumShares %></td>
-                                <td> <%= investment.Stock1Percent %>%</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Stock 2: </strong></td>
-                                <td> <%= investment.Stock2Symbol %></td>
-                                <td> $<%= investment.Stock2CurrentPrice %></td>
-                                <td> <%= investment.Stock2NumShares %></td>
-                                <td> <%= investment.Stock2Percent %>%</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Stock 3: </strong></td>
-                                <td> <%= investment.Stock3Symbol %></td>
-                                <td> $<%= investment.Stock3CurrentPrice %></td>
-                                <td> <%= investment.Stock3NumShares %></td>
-                                <td> <%= investment.Stock3Percent %>%</td>
-                            </tr>
-                            <tr><td colspan="5"></td></tr>
-                        <% } %>      
-                            
+                    <tr class="panel-heading" style="background-color:#F76C51 !important;"><th style="line-height: 45px; font-size: 20px;" colspan="5">*** Investments Currently in the Database ***</th></tr>
+                            <% for (Investment investment : investmentDao.getAllInvestments()) {%>
+                    <tr>
+                        <td><strong>Investor Info</strong></td>
+                        <td> <%= investment.InvestorName%></td>
+                        <td> <%= investment.PurchaseDate%></td>
+                        <td> $<%= String.format("%.2f", investment.InvestedAmount)%></td>  
+                        <td> $<%= String.format("%.2f", investment.LeftoverAmount)%></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stock 1: </strong></td>
+                        <td> <%= investment.Stock1Symbol%></td>
+                        <td> $<%= investment.Stock1CurrentPrice%></td>
+                        <td> <%= investment.Stock1NumShares%></td>
+                        <td> <%= investment.Stock1Percent%>%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stock 2: </strong></td>
+                        <td> <%= investment.Stock2Symbol%></td>
+                        <td> $<%= investment.Stock2CurrentPrice%></td>
+                        <td> <%= investment.Stock2NumShares%></td>
+                        <td> <%= investment.Stock2Percent%>%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stock 3: </strong></td>
+                        <td> <%= investment.Stock3Symbol%></td>
+                        <td> $<%= investment.Stock3CurrentPrice%></td>
+                        <td> <%= investment.Stock3NumShares%></td>
+                        <td> <%= investment.Stock3Percent%>%</td>
+                    </tr>
+                    <tr><td colspan="5"></td></tr>
+                        <% }%>      
                 </table>  
             </div>
+        </div>
             
                         
             <!----------------------- Modal ----------------------->
             <div modal="showModal" close="cancel()">
-                <div class="modal-header">
+                <div class="modal-header" style="background-color:#9CC96B; color:white;">
                     <h2 style="text-align: center;">Edit Investment</h2>
                 </div>
                 <div class="modal-body">

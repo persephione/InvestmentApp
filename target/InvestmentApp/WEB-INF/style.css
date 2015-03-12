@@ -25,12 +25,14 @@ html, body {
     width: 100%;
     text-align: center;
     border: 0;
+    position: absolute;
+    bottom: 100px;
 }
 .headerText {
     position: absolute;
     left: 0;
     width: 100%;
-    top: 30%;
+/*    top: 35%;*/
     font-size: larger;
     z-index: 500;
 }
@@ -51,6 +53,18 @@ html, body {
     float: left;
     width: 100%;
 }
+.panel-heading {
+    background-image: none !important;
+    color: white !important;
+}
+#hero-bar {
+    border-bottom:8px solid #F76C51;
+    background-color: white;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    padding: 0;
+}
 input {
     border: 1px solid #DBDFE1;
     text-align: center;
@@ -63,10 +77,8 @@ input {
     margin: 0 auto;
 }
 table.inputTableTop {
-    display: block;
     font-weight: 900;
     background-color: white;
-    border-spacing: 10px 0;
     border: 1px solid #DBDFE1;
     border-bottom: none;
     width: 100%;
@@ -74,30 +86,12 @@ table.inputTableTop {
 }
     table.inputTableTop tr {
         width: 100%;
+        margin: 0 auto;
     }
     table.inputTableTop th, td {
         padding: 15px 15px 15px 15px;
-    }
-table.inputTableBottom {
-    display: block;
-    font-weight: 900;
-    background-color: white;
-    width: 100%;
-    margin: 0 auto;
-    border-collapse: separate;
-    border-spacing: 10px 0;
-    border: 1px solid #DBDFE1;
-    border-top: none;
-}
-    table.inputTableBottom tr {
-        width: 100%;
-    }
-    table.inputTableBottom th, td {
-        width: 33%;
         text-align: center;
-        margin: 0 auto;
-        padding: 25px 25px 25px 25px;
-    }  
+    }
 .sliderDiv {
     text-align:center; 
     vertical-align:middle;
@@ -169,17 +163,17 @@ table.stockTable {
     margin-top: 15px;
 }
 table.investmentsTable {
-    display: block;
     background-color: white;
     position: relative;
     float: left;
-    border-collapse: separate;
-    border-spacing: 10px 0;
     border-radius: 5px;
     width: 70%;
+    margin-top: 15px;
     margin-left: 15%; 
     margin-right: 15%;
     text-align: center;
+    font-size: 12px;
+    padding: 0 !important;
 }
     table.investmentsTable th {
         text-align: center;

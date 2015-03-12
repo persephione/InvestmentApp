@@ -89,6 +89,7 @@
             ];
         };
         
+        // calls the chart and numShares functions at once
         function calculateData(){
             numShares();
             $scope.resetPie();
@@ -286,7 +287,7 @@
                 });
         
         $scope.openModal = function(){
-                $scope.showModal = true;
+            $scope.showModal = true;
         };
         
         $scope.ok = function() {
@@ -297,49 +298,31 @@
           $scope.showModal = false;
         };
 
-
-
-
-        
         // load the page
-        $scope.onLoad = function () {
-
-        };
-        $scope.onLoad();
+//        $scope.onLoad = function () {
+//
+//        };
+//        $scope.onLoad();
     });
     
-    // ----------------------- CHARTS---------------------------------------------------- //
     'use strict';
-    app.controller('MenuCtrl', function ($scope) {
-        $scope.isCollapsed = true;
-        $scope.charts = ['Line', 'Doughnut', 'Pie', 'Base'];
-    });
-    app.controller('LineCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
-            
-        }]);
-    app.controller('BaseCtrl', function ($scope) {
-        $scope.labels = ['Download Sales', 'Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
-        $scope.data = [300, 500, 100, 40, 120];
-        $scope.type = 'PolarArea';
-        $scope.toggle = function () {
-            $scope.type = $scope.type === 'PolarArea' ? 'Pie' : 'PolarArea';
-        };
-    });
     app.controller('TicksCtrl', ['$scope', '$interval', function ($scope, $interval) {
             var maximum = document.getElementById('container').clientWidth / 2 || 300;
             $scope.data = [[]];
             $scope.labels = [];
             $scope.options = {
                 animation: false,
-                showScale: false,
+                showScale: true,
                 showTooltips: false,
-                pointDot: false,
-                datasetStrokeWidth: 0.5
+                pointDot: true,
+                datasetStrokeWidth: 0.5,
+                scaleFontColor: "red",
+                scaleGridLineColor : "white"
             };
             // Update the dataset at 25FPS for a smoothly-animating chart
             $interval(function () {
                 getLiveChartData();
-            }, 40);
+            }, 600);
             function getLiveChartData() {
                 if ($scope.data[0].length) {
                     $scope.labels = $scope.labels.slice(1);
@@ -357,7 +340,6 @@
         var y = previous + Math.random() * 10 - 5;
         return y < 0 ? 0 : y > 100 ? 100 : y;
     }
-
 }());
 
 $(function () {
