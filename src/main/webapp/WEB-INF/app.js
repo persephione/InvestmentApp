@@ -255,13 +255,33 @@
                 var amt2 = parseInt((parseFloat($scope.model.InvestedAmount) * (parseFloat($scope.model.Stock2Percent) / 100)) / parseFloat($scope.stock2.StockCurrentPrice));
                 var amt3 = parseInt((parseFloat($scope.model.InvestedAmount) * (parseFloat($scope.model.Stock3Percent) / 100)) / parseFloat($scope.stock3.StockCurrentPrice));
 
-                $scope.model.Stock1NumShares = amt1;
-                $scope.model.Stock2NumShares = amt2;
-                $scope.model.Stock3NumShares = amt3;
-
-                $scope.model.Stock1InvestedAmt = parseFloat(amt1 * $scope.stock1.StockCurrentPrice).toFixed(2);
-                $scope.model.Stock2InvestedAmt = parseFloat(amt2 * $scope.stock2.StockCurrentPrice).toFixed(2);
-                $scope.model.Stock3InvestedAmt = parseFloat(amt3 * $scope.stock3.StockCurrentPrice).toFixed(2);
+                 if (parseFloat(amt1) ||  amt1 === 0)
+                {
+                    $scope.model.Stock1NumShares = amt1;
+                    $scope.model.Stock1InvestedAmt = parseFloat(amt1 * $scope.stock1.StockCurrentPrice).toFixed(2);
+                }else
+                {
+                    $scope.model.Stock1InvestedAmt =0;
+                    $scope.model.Stock1NumShares = 0;
+                }
+                if (parseFloat(amt2) || amt2 === 0)
+                {
+                    $scope.model.Stock2NumShares = amt2;
+                    $scope.model.Stock2InvestedAmt = parseFloat(amt2 * $scope.stock2.StockCurrentPrice).toFixed(2);
+                }else
+                {
+                    $scope.model.Stock2InvestedAmt = 0;
+                    $scope.model.Stock2NumShares = 0;
+                }
+                if (parseFloat(amt3) || amt3 === 0)
+                {
+                    $scope.model.Stock3NumShares = amt3;
+                    $scope.model.Stock3InvestedAmt = parseFloat(amt3 * $scope.stock3.StockCurrentPrice).toFixed(2);
+                }else
+                {
+                    $scope.model.Stock3InvestedAmt = 0;
+                    $scope.model.Stock3NumShares = 0;
+                }
 
                 $scope.model.LeftoverAmount = parseFloat($scope.model.InvestedAmount).toFixed(2) - (parseFloat($scope.model.Stock1InvestedAmt) + parseFloat($scope.model.Stock2InvestedAmt) + parseFloat($scope.model.Stock3InvestedAmt));
             }
