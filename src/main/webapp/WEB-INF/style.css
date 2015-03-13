@@ -188,12 +188,12 @@ button:hover, button:focus, .button:hover, .button:focus {
     color: white;
 }
 .submitButton {
-    background-color: #5FA2DD;
+    background-color: #91BB65;
     color: white;
     height: 100%;
 }
 .submitButton:hover, .submitButton:focus {
-    background-color: #5B9AD1;
+    background-color: #71924F;
     color: white;
     height: 100%;
 }
